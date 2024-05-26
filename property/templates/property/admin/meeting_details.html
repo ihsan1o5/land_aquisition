@@ -1,0 +1,7 @@
+{% extends "property/main.html" %}
+
+{% block content %}
+  <h2>Meeting Details</h2>
+  <p>Meeting with {{ meeting.landowner }} on {{ meeting.date }} at {{ meeting.time }}</p>
+  <p>Status: {{ meeting.confirmed|yesno:"Confirmed,Not Confirmed" }}</p>
+{% endblock %}

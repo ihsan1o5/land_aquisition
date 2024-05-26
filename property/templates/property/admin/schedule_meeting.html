@@ -1,0 +1,10 @@
+{% extends "property/main.html" %}
+
+{% block content %}
+  <h2>Schedule Meeting</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Schedule</button>
+  </form>
+{% endblock %}

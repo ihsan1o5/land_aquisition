@@ -1,0 +1,22 @@
+{% extends "property/main.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="alert alert-primary d-flex justify-content-between" role="alert">
+            <span class="align-self-center">Home / Meetings / <span style="color: gray;">Confirm Metting</span></span>
+        </div>
+
+        <h2>Confirm Meeting</h2>
+        <p class="text-center mt-5" style="width: 80%; font-weight: bold;">Meeting with {{ meeting.landowner }} on {{ meeting.date }} at {{ meeting.time }}</p>
+        <div class="d-flex justify-content-between">
+            <form method="post" style="width: 80%;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-primary float-end">Confirm</button>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+

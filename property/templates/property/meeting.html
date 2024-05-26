@@ -1,0 +1,90 @@
+{% extends "property/main.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <input type="hidden" id="meeting-id" value="{{meeting_id}}" />
+        
+        <div class="d-flex justify-content-between mb-3">
+            <h3 id="label-username">Username</h3>
+            <div class="d-flex" style="height: 40px;">
+                <input type="text" placeholder="Enter your username" id="username" class="form-control mr-2" />
+                <button id="btn-join" class="btn btn-sm btn-primary" style="width: 150px;">Join Room</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="video-container" class="col-md-9">
+                <div class="row" id="videos-row">
+                    <div class="col-12 mb-3" id="local-video-wrapper">
+                        <video id="local-video" class="w-100" autoplay playsinline></video>
+                    </div>
+                </div>
+                <button id="btn-toggle-audio" class="btn btn-secondary mr-2">Audio Mute</button>
+                <button id="btn-toggle-video" class="btn btn-secondary">Video Mute</button>
+                <a href="{% url 'meetings' request.user.id %}" class="btn btn-secondary">Close</a>
+            </div>
+            <div id="chat-container" class="col-md-3 border-left">
+                <h3>Chat</h3>
+                <div id="messages" class="border mb-3" style="height: 300px; overflow-y: scroll;">
+                    <ul id="message-list" class="list-unstyled"></ul>
+                </div>
+                <div class="input-group mb-3">
+                    <input id="msg" class="form-control" />
+                    <div class="input-group-append">
+                        <button id="btn-send-msg" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+{% comment %} {% extends "property/main.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <input type="hidden" id="meeting-id" value="{{meeting_id}}" />
+        
+        <div class="d-flex justify-content-between">
+            <h3 id="label-username">Username</h3>
+            <div class="d-flex" style="height: 40px;">
+                <input type="text" placeholder="Enter you username" id="username" class="form-control" />
+                <button id="btn-join" class="btn btn-sm btn-primary" style="width: 150px;">Join Room</button>
+            </div>
+        </div>
+        
+        
+        <div class="main-grid-container">
+            <div id="vedio-container">
+                <div>
+                    <video id="local-video" style="float: left;" autoplay playsinline></video>
+                </div>
+                <button id="btn-toggle-audio">Audio Mute</button>
+                <button id="btn-toggle-video">Video Mute</button>
+            </div>
+
+            
+        </div>
+
+        <div class="row">
+            <div id="chat">
+                <h3>CHAT</h3>
+                <div id="messages">
+                    <ul id="message-list"></ul>
+                </div>
+
+                <div>
+                    <input id="msg" />
+                    <button id="btn-send-msg">Send Message</button>
+                </div>
+
+                <button id="btn-share-screen">
+                    Share Screen
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %} {% endcomment %}

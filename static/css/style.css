@@ -1,0 +1,178 @@
+.label {
+    font-weight: bold;
+}
+
+.value {
+    color: blue;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.remove-underline {
+    text-decoration: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.text-holder {
+    padding: 10px;
+    border: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 1140px; 
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.comment-box {
+    border: none;
+    background-color: #f8f9fa;
+    width: 85%;
+    box-sizing: border-box;
+}
+
+.comment-box:focus {
+    outline: none;
+}
+
+.name-container {
+    margin-left: 5px;
+    color: lightgray;
+}
+
+.comment-container {
+    border: none;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.property-details-holder {
+    max-height: 70vh; /* Limit the height to the viewport height */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    padding: 10px; /* Optional: Add padding for better readability */
+    box-sizing: border-box;
+}
+
+.comment-btn-holder {
+    margin-right: 15px;
+}
+
+.edit-comment-box {
+    border: none;
+    background-color: #f8f9fa;
+}
+
+.edit-comment-box:focus {
+    outline: none;
+    border: none;
+}
+
+.btn-icon-holder {
+    border: none;
+    background: none;
+}
+
+.send-btn {
+    font-size: 20px;
+    margin-right: 4px;
+    color: #8d9399;
+}
+
+.inline-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-right-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-right-container > a {
+    cursor: pointer;
+}
+
+.nav-right-container > a > i {
+    font-size: 24px;
+    color: #0e6efd;
+}
+
+.notification-icon {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.notification-icon .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22px;
+    width: 22px;
+}
+
+.notification-top {
+    padding: 5px;
+}
+
+.notification-top > span {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.notification-top > a {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.mark-all-as-read-container {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 22px;
+}
+
+.mark-all-as-read-container a {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.video-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: black;
+}
+
+.main-grid-container {
+    display: grid;
+    grid-template-columns: 60% 20%;
+
+}
+
+video {
+    border-radius: 10px;
+    background-color: black;
+}

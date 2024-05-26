@@ -1,0 +1,16 @@
+{% extends "property/main.html" %}
+
+{% block content %}
+    {% include "property/addPropertyModal.html" %}
+    <div class="container mt-5">
+        <div class="alert alert-primary d-flex justify-content-between" role="alert">
+            <span class="align-self-center">Home / Property / <span style="color: gray;">Update</span></span>
+        </div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit" class="btn btn-sm btn-primary mt-3 float-end mb-5">Update</button>
+            <a href="{% url 'home' %}" class="btn btn-sm btn-info mt-3 float-end mb-5" style="margin-right: 5px;">Go Back</a>
+        </form>
+    </div>
+{% endblock %}

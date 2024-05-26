@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'meetings' request.user.id %}">Meetings</a>
+            </li>
+        </ul>
+        <div class="d-flex justify-content-between" style="width: 60%; align-items: center;">
+            <span style="font-weight: bold; margin-right: 15px;">
+                Welcome: <span style="font-weight: bolder;">{{ request.user }}</span>
+            </span>
+
+            <div class="nav-right-container">
+                <a class="notification-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="badge" id="notificationCount"></span>
+                </a>
+                <a class="btn btn-outline-success" href="{% url 'logout' %}">LogOut</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</nav>
