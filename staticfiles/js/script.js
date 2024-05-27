@@ -135,6 +135,7 @@ function saveComment(commentId) {
 
 document.addEventListener('DOMContentLoaded', function() {
     fetchNotifications();
+    setInterval(fetchNotifications, 10000);
   
     function fetchNotifications() {
       fetch(`${baseUrl}/property/fetch_notifications/`)
@@ -164,8 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
               notificationList.appendChild(notificationItem);
             });
           } else {
-            notificationCount.textContent = '';
-            notificationCount.style.display = 'none';
+            notificationCount.textContent = 0;
             notificationList.innerHTML = '<p>No new notifications.</p>';
           }
         });
@@ -190,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.viewNotificationDetail = function(notificationId, propertyId) {
-        console.log("noti noti ........ ", propertyId);
         fetch(`${baseUrl}/property/view_notification_detail/${notificationId}/${propertyId}/`)
         .then(response => response.json())
         .then(data => {
@@ -201,49 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    const notificationList = document.getElementById('notificationList');
-    const notificationCount = document.getElementById('notificationCount');
-
-    const notificationSocket = new WebSocket(
-        'ws://' + window.location.host + '/ws/notifications/'
-    );
-
-    notificationSocket.onmessage = function(e) {
-        const data = JSON.parse(e.data);
-        console.log("Channel data", data);
-        const notificationItem = document.createElement('div');
-        notificationItem.innerHTML = `
-            <div class="alert alert-primary" role="alert" style="padding: 0; cursor: pointer;">
-                <div class="d-flex justify-content-between notification-top">
-                    <span>${data.title}</span>
-                    <a href="#" onclick="markAsRead(${data.id})">Mark as read</a>
-                </div>
-                <div style="padding: 5px;">
-                    <p style="font-size: 10px; margin: 0;">${data.detail}</p>
-                </div>
-            </div>
-        `;
-        notificationList.appendChild(notificationItem);
-
-        // Update the notification count
-        const currentCount = parseInt(notificationCount.textContent) || 0;
-        notificationCount.textContent = currentCount + 1;
-    };
-
-    notificationSocket.onclose = function(e) {
-        console.error('WebSocket closed unexpectedly');
-    };
-
-    notificationSocket.onerror = function(e) {
-        console.error('WebSocket encountered an error:', e);
-    };
-
-    notificationSocket.onopen = function(e) {
-        console.log('WebSocket connection established');
-    };
 });
 
 
